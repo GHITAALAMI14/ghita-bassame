@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Invitation au mariage de Ghita et Bassame, samedi 3 avril 2027, La Perla The Queen, Fès.">
+<meta name="description" content="Invitation au mariage de Ghita et Bassame, samedi 3 avril 2027 à 17h30, La Perla The Queen, Fès.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Ghita & Bassame</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -31,8 +31,9 @@ body{background:var(--linen);color:var(--ink);font-family:var(--f-body);font-siz
 main{max-width:460px;margin:-24px auto 0;display:flex;flex-direction:column;align-items:center;gap:40px;text-align:center}
 
 /* ===== Card ===== */
-.stage{width:100%;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding-block:8px}
-.stage .card{width:min(100%,calc((100svh - 120px) * 9 / 16))}
+.stage{width:100vw;margin-inline:calc(50% - 50vw);min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding-block:6px}
+.stage .card{width:min(100vw,640px,calc((100svh - 62px) * 9 / 16))}
+body{overflow-x:clip}
 .scroll{display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:none;cursor:pointer;font-family:var(--f-body);font-weight:500;text-transform:uppercase;font-size:.72rem;letter-spacing:.3em;color:var(--muted);transition:opacity .5s}
 .scroll svg{width:22px;height:22px;animation:nudge 1.6s ease-in-out infinite}
 @keyframes nudge{50%{transform:translateY(6px)}}
@@ -51,6 +52,7 @@ main{max-width:460px;margin:-24px auto 0;display:flex;flex-direction:column;alig
 .fam{font-family:var(--f-body);font-size:3.8cqw;line-height:1.3;color:#9a8a70;max-width:58cqw}
 .fam b{font-weight:700;color:#7d6c52}
 .datebox{background:rgba(236,232,224,.85);padding:1.4cqw 5cqw 1.8cqw;display:flex;flex-direction:column;align-items:center;gap:.4cqw}
+.datebox .hour{font-family:var(--f-body);font-weight:700;text-transform:uppercase;font-size:4cqw;letter-spacing:.2em;color:#3b322b;margin-top:.6cqw}
 .datebox .wd{font-family:var(--f-body);font-weight:500;text-transform:uppercase;font-size:2.8cqw;letter-spacing:.32em;color:#4a4038}
 .date{display:flex;align-items:center;gap:2.8cqw}
 .date .sm{font-family:var(--f-body);font-weight:500;text-transform:uppercase;font-size:3.3cqw;letter-spacing:.3em;color:#4a4038}
@@ -150,9 +152,10 @@ footer{font-family:var(--f-script);font-size:2.2rem;color:var(--ink)}
         <p class="mono" aria-label="G B"><span>G</span><i></i><span>B</span></p>
         <h1 class="names"><span class="n">Ghita</span><span class="amp">&amp;</span><span class="n n2">Bassame</span></h1>
         <p class="fam">Les familles <b>ALAMI</b> et <b>BENSALLAM</b> ont l'immense joie de vous convier à leur célébration</p>
-        <div class="datebox" aria-label="Samedi 3 avril 2027">
+        <div class="datebox" aria-label="Samedi 3 avril 2027 à 17h30">
           <p class="wd">Samedi</p>
           <div class="date"><span class="sm">Avril</span><span class="big">03</span><span class="sm">2027</span></div>
+          <p class="hour">À 17h30</p>
         </div>
         <div class="venue">
           <p>La Perla The Queen</p>
@@ -423,7 +426,7 @@ footer{font-family:var(--f-script);font-size:2.2rem;color:var(--ink)}
   });
 
   /* ---------- Countdown ---------- */
-  var target=new Date(2027,3,3,0,0,0).getTime(),E={d:'d',h:'h',m:'m',s:'s'};
+  var target=Date.UTC(2027,3,3,16,30,0),E={d:'d',h:'h',m:'m',s:'s'};
   for(var k in E)E[k]=document.getElementById(E[k]);
   function p2(n){return n<10?'0'+n:''+n}
   function tick(){var t=Math.max(0,Math.floor((target-Date.now())/1000));E.d.textContent=Math.floor(t/86400);E.h.textContent=p2(Math.floor(t%86400/3600));E.m.textContent=p2(Math.floor(t%3600/60));E.s.textContent=p2(t%60);}
